@@ -10,13 +10,25 @@ const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
 
+buttons.forEach(btn=>{
+    btn.dataset.clickable = "false";
+    btn.addEventListener('click', e=>{
+        if(e.target.dataset.clickable === "true"){
+            if(e.target.id == order[index]){
+                console.log('gameover');
+            } else {
+                index++;
+            }
+        }
+    })
+})
 let order = [];
 let index = 0;
 let playerInput = [];
 let round = 1;
 
-function onClick()
 
 function pushRandom()
 
 function playOrder()
+
