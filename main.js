@@ -9,32 +9,60 @@ const expertBtn = document.querySelector('#expert');
 const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
-
-buttons.forEach(btn=>{
-    btn.dataset.clickable = "false";
-    btn.addEventListener('click', e=>{
-        if(e.target.dataset.clickable === "true"){
-            if(e.target.id == order[index]){
-                console.log('gameover');
-            } else {
-                index++;
-            }
-        }
-    })
-})
 let order = [];
 let index = 0;
 let playerInput = [];
 let round = 1;
 
+buttons.forEach(btn=>{
+    btn.dataset.clickable = "false";
+    btn.addEventListener('click', e=>{
+        if(e.target.dataset.clickable === "true"){
+            console.log(e.target.id +' was clicked');
+            if(e.target.id != order[index]){
+                console.log('gameover');
+            } else {
+                index++;
+                if (index > order.length){
+                    stopClick();
+                    index = 0;
+                    round++;
+                    pushRandom();
+                }
+            }
+        }
+    })
+})
 
 function pushRandom(){
-    let number = Math.floor((Math.random * buttons.length)+1);
+    let number = Math.floor((Math.random() * buttons.length)+1);
     console.log('number: '+number);
     order.push(number);
     console.log('order[]: '+order);
-
+    playOrder();
 }
 
-function playOrder()
+function playOrder(){
+    for (let i = 0; i < order.length; i++){
+        (function(i){
+            setTimeout(function(){
+                console.log('timeout');
+            }, 3000*1)
+        })(i)
+    }
+    allowClick();
+}
 
+function allowClick(){
+    buttons.forEach(btn=>{
+        btn.dataset.clickable = 'true';
+    })
+}
+
+function stopClick(){
+    buttons.forEach(btn=>{
+        btn.dataset.clickable = 'false';
+    })
+}
+
+pushRandom();
