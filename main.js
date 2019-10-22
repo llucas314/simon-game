@@ -8,6 +8,15 @@ const hardBtn = document.querySelector('#hard');
 const expertBtn = document.querySelector('#expert');
 const section = document.querySelector('section')
 const main = document.querySelector('main')
+const buttons = document.querySelectorAll('.button');
 
-const order = [];
-const 
+let order = [];
+let index = 0;
+let playerInput = [];
+let round = 1;
+
+function onClick()
+
+function pushRandom()
+
+function playOrder()
