@@ -28,7 +28,13 @@ let playerInput = [];
 let round = 1;
 
 
-function pushRandom()
+function pushRandom(){
+    let number = Math.floor((Math.random * buttons.length)+1);
+    console.log('number: '+number);
+    order.push(number);
+    console.log('order[]: '+order);
+
+}
 
 function playOrder()
 
