@@ -23,7 +23,7 @@ buttons.forEach(btn=>{
                 console.log('gameover');
             } else {
                 index++;
-                if (index > order.length){
+                if (index > order.length-1){
                     stopClick();
                     index = 0;
                     round++;
