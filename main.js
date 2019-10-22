@@ -11,7 +11,6 @@ const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
 let order = [];
 let index = 0;
-let playerInput = [];
 let round = 1;
 
 buttons.forEach(btn=>{
@@ -36,19 +35,26 @@ buttons.forEach(btn=>{
 
 function pushRandom(){
     let number = Math.floor((Math.random() * buttons.length)+1);
-    console.log('number: '+number);
+    console.log('number: '+ number);
     order.push(number);
-    console.log('order[]: '+order);
+    console.log('order[]: '+ order);
     playOrder();
 }
 
 function playOrder(){
     for (let i = 0; i < order.length; i++){
-        (function(i){
-            setTimeout(function(){
-                console.log('timeout');
-            }, 3000*1)
-        })(i)
+        console.log('add filter')
+        buttons[order[i]-1].classList.add('filter');
+        setTimeout(e=>{
+            buttons[order[i]-1].classList.remove('filter');
+        },1000)
+    //     (function(i){
+    //         setTimeout(function(){
+    //             console.log(buttons[order[i]-1]);
+    //             buttons[order[i]-1].classList.remove('filter');
+    //             console.log('timeout' + i);
+    //         }, 300*i)
+    //     })(i)
     }
     allowClick();
 }

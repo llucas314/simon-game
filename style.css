@@ -37,26 +37,37 @@ h2{
     height: 100%;
     width: 100%;
     cursor: pointer;
+    transition: all 1500ms ease-in;
 }
 .red{
     grid-column: 1;
     grid-row: 1;
     background-color: red;
+    filter: brightness(1);
+    
 }
 .blue{
     grid-column: 3;
     grid-row: 1;
     background-color: blue;
+    filter: brightness(1);
 }
 .green{
     grid-column: 3;
     grid-row: 3;
     background-color: green;
+    filter: brightness(1);
 }
 .yellow{
     grid-column: 1;
     grid-row: 3;
     background-color: yellow;
+    filter: brightness(1);
+}
+.filter{
+    filter: brightness(2.5);
+    transform: scale(1.5);
+    transition: all 1500ms ease-in;
 }
 
 
