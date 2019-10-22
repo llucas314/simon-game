@@ -23,27 +23,40 @@ h2{
 .col{
     flex-direction: column;
 }
+.wrapper{
+    height: 60vh;
+    width: 60vh;
+}
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 
 }
-#red{
+.grid>input{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.red{
     grid-column: 1;
     grid-row: 1;
+    background-color: red;
 }
-#blue{
+.blue{
     grid-column: 3;
     grid-row: 1;
+    background-color: blue;
 }
-#green{
+.green{
     grid-column: 3;
     grid-row: 3;
+    background-color: green;
 }
-#yellow{
+.yellow{
     grid-column: 1;
     grid-row: 3;
+    background-color: yellow;
 }
 
 
