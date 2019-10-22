@@ -29,7 +29,22 @@ h2{
     grid-template-rows: 1fr 1fr 1fr;
 
 }
-
+#red{
+    grid-column: 1;
+    grid-row: 1;
+}
+#blue{
+    grid-column: 3;
+    grid-row: 1;
+}
+#green{
+    grid-column: 3;
+    grid-row: 3;
+}
+#yellow{
+    grid-column: 1;
+    grid-row: 3;
+}
 
 
 
