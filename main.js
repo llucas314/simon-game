@@ -17,6 +17,8 @@ buttons.forEach(btn=>{
     btn.dataset.clickable = "false";
     btn.addEventListener('click', e=>{
         if(e.target.dataset.clickable === "true"){
+            setClickColor(parseInt(e.target.id));
+            setTimeout(resetColor,200);
             console.log(e.target.id +' was clicked');
             if(e.target.id != order[index]){
                 console.log('gameover');
@@ -85,7 +87,7 @@ function playOrder(){
         setClickColor(order[counter]);
         setTimeout(resetColor, 500);
         if(counter == round + 1){
-            lights = "";
+            clearInterval(lights)
             allowClick();
         }
         counter++;
