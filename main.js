@@ -9,6 +9,7 @@ const expertBtn = document.querySelector('#expert');
 const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
+const alerts = document.querySelector('.turn');
 let order = [];
 let index = 0;
 let round = 1;
@@ -35,7 +36,7 @@ buttons.forEach(btn=>{
                         stopClick();
                         index = 0;
                         round++;
-                        pushRandom();
+                        alertRound()
                     }
                 },500)
             }
@@ -51,28 +52,6 @@ function pushRandom(){
     playOrder();
 }
 
-// function playOrder(){
-//     for (let i = 0; i < order.length; i++){
-//         (function(i){
-//             setTimeout(function(){
-//                 console.log(buttons[order[i]-1]);
-//                 buttons[order[i]-1].classList.add('filter');
-//                 console.log('timeout' + i);
-//                 (function(i){
-//                     setTimeout(function(){
-//                         console.log(buttons[order[i]-1]);
-                        
-//                         buttons[order[i]-1].classList.remove('filter');
-//                         console.log('timeout' + i);
-//                     }, 1000*(i+1))
-//                 })(i)
-//             }, 500*(i+1))
-//         })(i)
-       
-//     }
-//     allowClick();
-// }
-
 function allowClick(){
     buttons.forEach(btn=>{
         btn.dataset.clickable = 'true';
@@ -85,10 +64,8 @@ function stopClick(){
     })
 }
 
-pushRandom();
-
-
 function playOrder(){
+    alerts.classList.remove('animate');
     resetColor();
     let counter = 0;
     let lights = setInterval(()=>{
@@ -97,9 +74,11 @@ function playOrder(){
         if(counter == round + 1){
             clearInterval(lights)
             allowClick();
+            alerts.innerHTML = "Your Turn!";
+            alerts.classList.add('animate');
         }
         counter++;
-    },1000*(counter+1))
+    },700*(counter+1))
 }
 
 function resetColor(){
@@ -127,3 +106,11 @@ function setClickColor(num){
             break;
     }
 }
+
+function alertRound(){
+    alerts.classList.remove('animate');
+    alerts.innerHTML = `Round ${round}!`;
+    alerts.classList.add('animate');
+    setTimeout(pushRandom(),5000);
+}
+alertRound();
