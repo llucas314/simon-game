@@ -29,8 +29,8 @@ h2{
 }
 .grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 
 }
 .grid>input{
@@ -38,31 +38,35 @@ h2{
     width: 100%;
     cursor: pointer;
     transition: all 500ms ease-in;
+    border-color: #000000;
 }
 .red{
-    grid-column: 1;
-    grid-row: 1;
-    background-color: red;
-    filter: brightness(1);
-    
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 3;
+    background-color: rgb(102, 13, 13);
+    border-radius: 100% 0 0 0;
+    border-width: 1em .5em .5em 1em;
 }
 .blue{
-    grid-column: 3;
-    grid-row: 1;
-    background-color: blue;
-    filter: brightness(1);
+    grid-column: 4 / span 3;
+    grid-row: 1 / span 3;
+    background-color: rgb(13, 13, 107);
+    border-radius: 0 100% 0 0;
+    border-width: 1em 1em .5em .5em;
 }
 .green{
-    grid-column: 3;
-    grid-row: 3;
-    background-color: green;
-    filter: brightness(1);
+    grid-column:  4 / span 3;
+    grid-row: 4 / span 3;
+    background-color: rgb(1, 58, 1);
+    border-radius: 0 0 100% 0;
+    border-width: .5em 1em 1em .5em;
 }
 .yellow{
-    grid-column: 1;
-    grid-row: 3;
-    background-color: yellow;
-    filter: brightness(1);
+    grid-column: 1 / span 3;
+    grid-row: 4 / span 3;
+    background-color: rgb(187, 162, 20);
+    border-radius: 0 0 0 100%;
+    border-width: .5em .5em 1em 1em;
 }
 /* .filter{
     filter: brightness(2.5);

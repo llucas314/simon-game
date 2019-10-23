@@ -89,14 +89,14 @@ function playOrder(){
             allowClick();
         }
         counter++;
-    },1000)
+    },1000*(counter+1))
 }
 
 function resetColor(){
-    redBtn.style.backgroundColor = 'red';
-    blueBtn.style.backgroundColor = 'blue';
-    greenBtn.style.backgroundColor = 'green';
-    yellowBtn.style.backgroundColor = 'yellow';
+    redBtn.style.backgroundColor = 'rgb(102, 13, 13)';
+    blueBtn.style.backgroundColor = 'rgb(13, 13, 107)';
+    greenBtn.style.backgroundColor = 'rgb(1, 58, 1)';
+    yellowBtn.style.backgroundColor = 'rgb(187, 162, 20)';
 }
 function setClickColor(num){
     switch (num) {
