@@ -41,23 +41,27 @@ function pushRandom(){
     playOrder();
 }
 
-function playOrder(){
-    for (let i = 0; i < order.length; i++){
-        console.log('add filter')
-        buttons[order[i]-1].classList.add('filter');
-        setTimeout(e=>{
-            buttons[order[i]-1].classList.remove('filter');
-        },1000)
-    //     (function(i){
-    //         setTimeout(function(){
-    //             console.log(buttons[order[i]-1]);
-    //             buttons[order[i]-1].classList.remove('filter');
-    //             console.log('timeout' + i);
-    //         }, 300*i)
-    //     })(i)
-    }
-    allowClick();
-}
+// function playOrder(){
+//     for (let i = 0; i < order.length; i++){
+//         (function(i){
+//             setTimeout(function(){
+//                 console.log(buttons[order[i]-1]);
+//                 buttons[order[i]-1].classList.add('filter');
+//                 console.log('timeout' + i);
+//                 (function(i){
+//                     setTimeout(function(){
+//                         console.log(buttons[order[i]-1]);
+                        
+//                         buttons[order[i]-1].classList.remove('filter');
+//                         console.log('timeout' + i);
+//                     }, 1000*(i+1))
+//                 })(i)
+//             }, 500*(i+1))
+//         })(i)
+       
+//     }
+//     allowClick();
+// }
 
 function allowClick(){
     buttons.forEach(btn=>{
@@ -72,3 +76,44 @@ function stopClick(){
 }
 
 pushRandom();
+
+
+function playOrder(){
+    resetColor();
+    let counter = 0;
+    let lights = setInterval(()=>{
+        setClickColor(order[counter]);
+        setTimeout(resetColor, 500);
+        if(counter == round + 1){
+            lights = "";
+            allowClick();
+        }
+        counter++;
+    },1000)
+}
+
+function resetColor(){
+    redBtn.style.backgroundColor = 'red';
+    blueBtn.style.backgroundColor = 'blue';
+    greenBtn.style.backgroundColor = 'green';
+    yellowBtn.style.backgroundColor = 'yellow';
+}
+function setClickColor(num){
+    switch (num) {
+        case 1:
+            redBtn.style.backgroundColor = 'lightcoral';
+            break;
+        case 2:
+            blueBtn.style.backgroundColor = 'lightblue';
+            break;
+        case 3:
+            greenBtn.style.backgroundColor = 'lightgreen';
+            break;
+        case 4:
+            yellowBtn.style.backgroundColor = 'lightyellow';
+            break;
+    
+        default:
+            break;
+    }
+}

@@ -37,7 +37,7 @@ h2{
     height: 100%;
     width: 100%;
     cursor: pointer;
-    transition: all 1500ms ease-in;
+    transition: all 500ms ease-in;
 }
 .red{
     grid-column: 1;
@@ -64,12 +64,19 @@ h2{
     background-color: yellow;
     filter: brightness(1);
 }
-.filter{
+/* .filter{
     filter: brightness(2.5);
     transform: scale(1.5);
-    transition: all 1500ms ease-in;
+    transition: all  ease-in;
+} */
+.animate{
+    animation: pulse 1000ms 1;
 }
-
+@keyframes pulse{
+    0%{transform: scale(1);}
+    50%{transform: scale(1.3);}
+    100%{transform: scale(1);}
+}
 
 
 
