@@ -18,18 +18,26 @@ buttons.forEach(btn=>{
     btn.addEventListener('click', e=>{
         if(e.target.dataset.clickable === "true"){
             setClickColor(parseInt(e.target.id));
-            setTimeout(resetColor,200);
+            let p = new Promise((res,err)=>{
+                setTimeout(resetColor, 500);
+                res('Promise success') 
+            })
+            p.then((message)=>{
+                console.log(message)
+            }).catch(()=>console.log('promise failed'))
             console.log(e.target.id +' was clicked');
             if(e.target.id != order[index]){
                 console.log('gameover');
             } else {
                 index++;
-                if (index > order.length-1){
-                    stopClick();
-                    index = 0;
-                    round++;
-                    pushRandom();
-                }
+                setTimeout(()=>{
+                    if (index > order.length-1){
+                        stopClick();
+                        index = 0;
+                        round++;
+                        pushRandom();
+                    }
+                },500)
             }
         }
     })
