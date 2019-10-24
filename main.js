@@ -10,7 +10,6 @@ const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
 const alerts = document.querySelector('.turn');
-const rounds = document.querySelector('.round');
 let order = [];
 let index = 0;
 let round = 1;
@@ -29,7 +28,6 @@ buttons.forEach(btn=>{
                         stopClick();
                         index = 0;
                         round++;
-                        alerts.classList.remove('animate');
                         alertRound();
                     }
                 },500)
@@ -59,15 +57,13 @@ function stopClick(){
 }
 
 function playOrder(){
-    alerts.classList.remove('animate');
     let counter = 0;
     let lights = setInterval(()=>{
         setClickColor(order[counter]);
         if(counter == round + 1){
             clearInterval(lights)
             allowClick();
-            alerts.innerHTML = "Your Turn!";
-            alerts.classList.add('animate');
+            playerTurn();
         }
         counter++;
     },200*(counter+1.5))
@@ -104,15 +100,24 @@ function setClickColor(num){
 }
 
 function alertRound(){
-    rounds.innerHTML = `Round ${round}!`;
-    rounds.classList.add('animate');
-    rounds.addEventListener('animationend',animationEnd);
+    alerts.innerHTML = `Round ${round}!`;
+    alerts.classList.add('animate');
+    alerts.addEventListener('animationend',animationEnd);
 }
-
+function playerTurn(){
+    alerts.innerHTML = 'Your Turn';
+    alerts.classList.add('animate');
+    alerts.addEventListener('animationend',animationPlayer);
+    
+}
 animationEnd = (e)=>{
-    rounds.removeEventListener('animationend',animationEnd);
-    rounds.classList.remove('animate');
+    alerts.removeEventListener('animationend',animationEnd);
+    alerts.classList.remove('animate');
     pushRandom();
+}
+animationPlayer = (e)=>{
+    alerts.removeEventListener('animationend',animationPlayer);
+    alerts.classList.remove('animate');
 }
 transitionEnd = (e)=>{
     e.target.removeEventListener('transitionend',transitionEnd);
