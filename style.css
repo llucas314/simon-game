@@ -30,48 +30,66 @@ h2{
 .col{
     flex-direction: column;
 }
-
-.difficulty{
-    height: 10vmin;
-    width: 10vmin;
-    color: black;
-    font-weight: 600;
-    font-size: 1em;
-    margin: 2vw;
-    border-radius: 1em;
-    transition: all 300ms ease-in;
-    border: none;
+.level{
+    perspective: 1500px;
 }
+
+
 .levelred{
-    background-color: red;
+    background-image: linear-gradient(to bottom,rgb(245,4,57) 0%, rgb(220,3,72) 100%);
+    box-shadow: 0px 6px 0px rgb(178, 3, 45), inset 0px 1px 0px rgba(255,255,255,0.3);
+
 }
 .levelblue{
-    background-color: blue;
+    background-image: linear-gradient(to bottom, rgb(12, 107, 239) 0%, rgb(0, 78, 227) 100%);
+    box-shadow: 0px 6px 0px rgb(0, 73, 189), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
 .levelyellow{
-    background-color: yellow ;
+    background-image: linear-gradient(to bottom, rgb(217, 214, 102) 0%, rgb(154, 153, 70) 100%) ;
+    box-shadow: 0px 6px 0px rgb(138, 137, 66), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
 .levelgreen{
-    background-color: green;
+    background-image: linear-gradient(to bottom,rgb(33,229,103) 0%, rgb(19,209,119) 100%);
+    box-shadow: 0px 6px 0px rgb(29, 168, 67), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
 .levelred:hover{
-    background-color: lightcoral;
+    background-image: linear-gradient(to bottom,rgb(220,3,72) 0%, rgb(245,4,57) 100%);
+    box-shadow: 0px 2px 0px rgb(178, 3, 45), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.5);
 }
 .levelblue:hover{
-    background-color: lightcyan;
+    background-image: linear-gradient(to bottom, rgb(0, 78, 227) 0%, rgb(12, 107, 239) 100%);
+    box-shadow: 0px 2px 0px rgb(0, 73, 189), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.5);
+
 }
 .levelyellow:hover{
-    background-color: lightyellow;
+    background-image: linear-gradient(to bottom, rgb(154, 153, 70) 0%, rgb(217, 214, 102) 100%) ;
+    box-shadow: 0px 2px 0px rgb(138, 137, 66), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.5);
 }
 .levelgreen:hover{
-    background-color: lightgreen;
+    background-image: linear-gradient(to bottom,rgb(19,209,119) 0%, rgb(33,229,103) 100%);
+    box-shadow: 0px 2px 0px rgb(29, 168, 67), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.5);
 }
 
-.difficulty:hover{
-    
-    transform: scale(1.05);
-    transition: all 300ms ease-in;
+.difficulty{
+    height: 7vmin;
+    width: 15vmin;
+    color: #000;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin: 2vw;
+    border-radius: 1em;
+    border: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    transform: rotateX(20deg);
+    transition: all .2ms ease-in-out;
+
 }
+.difficulty:hover{
+    transform: translate(0,4px);
+}
+
 .wrapper{
     height: 60vh;
     width: 60vh;
@@ -158,10 +176,23 @@ h2{
     transform: scale(0);
 
 }
+.try{
+    position: fixed;
+    height: 10vh;
+    width: 10vh;
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+    z-index: 4;
+    transform: scale(1);
+    border-radius: 1em;
+    transition: all 200ms ease;
+}
+.try:hover{
+    background-color: rgba(0,0,0,0.9);
+}
 .animate{
     animation: pulse 2500ms 1;
 }
-
 @keyframes pulse{
     0%{transform: scale(0);}
     40%{transform: scale(1.3);}

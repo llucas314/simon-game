@@ -7,6 +7,8 @@ const main = document.querySelector('main');
 const buttons = document.querySelectorAll('.button');
 const difficulty = document.querySelectorAll('.difficulty');
 const alerts = document.querySelector('.turn');
+const restart = document.querySelector('.try');
+const beep = new Audio('soundeffects/click.mp3');
 let order = [];
 let index = 0;
 let round = 1;
@@ -17,9 +19,14 @@ buttons.forEach(btn=>{
     btn.addEventListener('click', e=>{
         if(e.target.dataset.clickable === "true"){
             setClickColor(parseInt(e.target.id));
+            beep.pause();
+            console.log(beep.duration);
+            beep.play();
             if(e.target.id != order[index]){
                 console.log('game over');
+                stopClick();
                 playerTurn('GAME OVER!');
+                tryAgain();
             } else {
                 index++;
                 setTimeout(()=>{
@@ -164,12 +171,18 @@ function difficultySet(e){
     alertRound();
 }
 function tryAgain() {
+    restart.classList.remove('hide');
+    restart.addEventListener('click',restartGame);
+    setDifficulty();
+}
+restartGame = () =>{
+    restart.removeEventListener('click', restartGame);
     order = [];
     index = 0;
     round = 1;
     main.classList.add('hide');
     section.classList.remove('hide');
-    setDifficulty();
+    restart.classList.add('hide');
 }
 setDifficulty();
 // alertRound();
