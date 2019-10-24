@@ -10,6 +10,7 @@ const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
 const alerts = document.querySelector('.turn');
+const rounds = document.querySelector('.round');
 let order = [];
 let index = 0;
 let round = 1;
@@ -36,7 +37,8 @@ buttons.forEach(btn=>{
                         stopClick();
                         index = 0;
                         round++;
-                        alertRound()
+                        alerts.classList.remove('animate');
+                        alertRound();
                     }
                 },500)
             }
@@ -78,7 +80,7 @@ function playOrder(){
             alerts.classList.add('animate');
         }
         counter++;
-    },700*(counter+1))
+    },200*(counter+1.5))
 }
 
 function resetColor(){
@@ -108,9 +110,15 @@ function setClickColor(num){
 }
 
 function alertRound(){
-    alerts.classList.remove('animate');
-    alerts.innerHTML = `Round ${round}!`;
-    alerts.classList.add('animate');
-    setTimeout(pushRandom(),5000);
+    rounds.innerHTML = `Round ${round}!`;
+    rounds.classList.add('animate');
+    rounds.addEventListener('animationend',animationEnd);
+}
+
+animationEnd = (e)=>{
+    rounds.removeEventListener('animationend',animationEnd);
+    rounds.classList.remove('animate');
+    pushRandom();
 }
 alertRound();
+
