@@ -180,10 +180,11 @@ restartGame = () =>{
     order = [];
     index = 0;
     round = 1;
+    buttons.forEach(button=>button.classList.remove('speed1','speed2','speed3','speed4'));
     main.classList.add('hide');
     section.classList.remove('hide');
     restart.classList.add('hide');
-}
+};
 setDifficulty();
 // alertRound();
 
