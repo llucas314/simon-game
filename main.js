@@ -9,10 +9,12 @@ const expertBtn = document.querySelector('#expert');
 const section = document.querySelector('section')
 const main = document.querySelector('main')
 const buttons = document.querySelectorAll('.button');
+const difficulty = document.querySelectorAll('.difficulty');
 const alerts = document.querySelector('.turn');
 let order = [];
 let index = 0;
 let round = 1;
+var speed;
 
 buttons.forEach(btn=>{
     btn.dataset.clickable = "false";
@@ -29,7 +31,7 @@ buttons.forEach(btn=>{
                         index = 0;
                         round++;
                         alertRound();
-                    }
+                    }s
                 },500)
             }
         }
@@ -66,7 +68,7 @@ function playOrder(){
             playerTurn();
         }
         counter++;
-    },200*(counter+1.5))
+    },speed*(counter+1.5))
 }
 
 function resetColor(){
@@ -125,5 +127,46 @@ transitionEnd = (e)=>{
     console.log('removed')
 }
 
-alertRound();
+function setSpeed(level){
+    switch (level) {
+        case 'easy':
+            speed = 700;
+            buttons.forEach(button=>
+                button.classList.add('speed1'))
+            break;
+        case 'medium':
+            speed = 500;
+            buttons.forEach(button=>
+                button.classList.add('speed2'))
+            break;
+        case 'hard':
+            speed = 350;
+            buttons.forEach(button=>
+                button.classList.add('speed3'))
+            break;
+        case 'expert':
+            speed = 200;
+            buttons.forEach(button=>
+                button.classList.add('speed4'))
+            break;
+        default:
+            break;
+    }
+    
+}
+function setDifficulty(){
+    difficulty.forEach(level=>{
+        level.addEventListener('click',difficultySet)
+    })
+}    
+function difficultySet(e){
+    e.target.removeEventListener('click', difficultySet);
+    setSpeed(e.target.id)
+    console.log('speed' + speed);
+    main.classList.remove('hide');
+    section.classList.add('hide');
+    alertRound();
+}
+setDifficulty();
+// alertRound();
 
