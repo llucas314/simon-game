@@ -38,7 +38,7 @@ h2{
     height: 100%;
     width: 100%;
     cursor: pointer;
-    transition: all 200ms ease-in;
+    transition: all 200ms linear;
     border-color: #000000;
 }
 .red{
@@ -69,6 +69,19 @@ h2{
     border-radius: 0 0 0 100%;
     border-width: .5em .5em 1em 1em;
 }
+.redLight{
+    background-color: lightcoral;
+}
+.blueLight{
+    background-color: lightblue;
+}
+.greenLight{
+    background-color: lightgreen;
+}
+.yellowLight{
+    background-color:lightyellow;
+}
+
 .round,.turn{
     position: fixed;
     height: 100vh;

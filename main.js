@@ -20,14 +20,6 @@ buttons.forEach(btn=>{
     btn.addEventListener('click', e=>{
         if(e.target.dataset.clickable === "true"){
             setClickColor(parseInt(e.target.id));
-            let p = new Promise((res,err)=>{
-                setTimeout(resetColor, 500);
-                res('Promise success') 
-            })
-            p.then((message)=>{
-                console.log(message)
-            }).catch(()=>console.log('promise failed'))
-            console.log(e.target.id +' was clicked');
             if(e.target.id != order[index]){
                 console.log('gameover');
             } else {
@@ -68,11 +60,9 @@ function stopClick(){
 
 function playOrder(){
     alerts.classList.remove('animate');
-    resetColor();
     let counter = 0;
     let lights = setInterval(()=>{
         setClickColor(order[counter]);
-        setTimeout(resetColor, 500);
         if(counter == round + 1){
             clearInterval(lights)
             allowClick();
@@ -92,16 +82,20 @@ function resetColor(){
 function setClickColor(num){
     switch (num) {
         case 1:
-            redBtn.style.backgroundColor = 'lightcoral';
+            redBtn.addEventListener('transitionend', transitionEnd);
+            redBtn.classList.add('redLight');
             break;
         case 2:
-            blueBtn.style.backgroundColor = 'lightblue';
+            blueBtn.addEventListener('transitionend', transitionEnd);
+            blueBtn.classList.add('blueLight');
             break;
         case 3:
-            greenBtn.style.backgroundColor = 'lightgreen';
+            greenBtn.addEventListener('transitionend', transitionEnd);
+            greenBtn.classList.add('greenLight');
             break;
         case 4:
-            yellowBtn.style.backgroundColor = 'lightyellow';
+            yellowBtn.addEventListener('transitionend', transitionEnd);
+            yellowBtn.classList.add('yellowLight');
             break;
     
         default:
@@ -120,5 +114,11 @@ animationEnd = (e)=>{
     rounds.classList.remove('animate');
     pushRandom();
 }
+transitionEnd = (e)=>{
+    e.target.removeEventListener('transitionend',transitionEnd);
+    e.target.classList.remove('redLight','blueLight','greenLight','yellowLight');
+    console.log('removed')
+}
+
 alertRound();
 
