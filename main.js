@@ -2,19 +2,15 @@ const redBtn = document.querySelector('.red');
 const blueBtn = document.querySelector('.blue');
 const greenBtn = document.querySelector('.green');
 const yellowBtn = document.querySelector('.yellow');
-const easyBtn = document.querySelector('#easy');
-const mediumBtn = document.querySelector('#medium');
-const hardBtn = document.querySelector('#hard');
-const expertBtn = document.querySelector('#expert');
-const section = document.querySelector('section')
-const main = document.querySelector('main')
+const section = document.querySelector('section');
+const main = document.querySelector('main');
 const buttons = document.querySelectorAll('.button');
 const difficulty = document.querySelectorAll('.difficulty');
 const alerts = document.querySelector('.turn');
 let order = [];
 let index = 0;
 let round = 1;
-var speed;
+let speed;
 
 buttons.forEach(btn=>{
     btn.dataset.clickable = "false";
@@ -36,7 +32,7 @@ buttons.forEach(btn=>{
             }
         }
     })
-})
+});
 
 function pushRandom(){
     let number = Math.floor((Math.random() * buttons.length)+1);
@@ -63,7 +59,7 @@ function playOrder(){
     let lights = setInterval(()=>{
         setClickColor(order[counter]);
         if(counter == round + 1){
-            clearInterval(lights)
+            clearInterval(lights);
             allowClick();
             playerTurn();
         }
@@ -71,12 +67,6 @@ function playOrder(){
     },speed*(counter+1.5))
 }
 
-function resetColor(){
-    redBtn.style.backgroundColor = 'rgb(102, 13, 13)';
-    blueBtn.style.backgroundColor = 'rgb(13, 13, 107)';
-    greenBtn.style.backgroundColor = 'rgb(1, 58, 1)';
-    yellowBtn.style.backgroundColor = 'rgb(187, 162, 20)';
-}
 function setClickColor(num){
     switch (num) {
         case 1:
@@ -112,42 +102,42 @@ function playerTurn(){
     alerts.addEventListener('animationend',animationPlayer);
     
 }
-animationEnd = (e)=>{
+animationEnd = ()=>{
     alerts.removeEventListener('animationend',animationEnd);
     alerts.classList.remove('animate');
     pushRandom();
-}
-animationPlayer = (e)=>{
+};
+animationPlayer = ()=>{
     alerts.removeEventListener('animationend',animationPlayer);
     alerts.classList.remove('animate');
-}
+};
 transitionEnd = (e)=>{
     e.target.removeEventListener('transitionend',transitionEnd);
     e.target.classList.remove('redLight','blueLight','greenLight','yellowLight');
     console.log('removed')
-}
+};
 
 function setSpeed(level){
     switch (level) {
         case 'easy':
             speed = 700;
             buttons.forEach(button=>
-                button.classList.add('speed1'))
+                button.classList.add('speed1'));
             break;
         case 'medium':
             speed = 500;
             buttons.forEach(button=>
-                button.classList.add('speed2'))
+                button.classList.add('speed2'));
             break;
         case 'hard':
             speed = 350;
             buttons.forEach(button=>
-                button.classList.add('speed3'))
+                button.classList.add('speed3'));
             break;
         case 'expert':
             speed = 200;
             buttons.forEach(button=>
-                button.classList.add('speed4'))
+                button.classList.add('speed4'));
             break;
         default:
             break;
@@ -156,12 +146,12 @@ function setSpeed(level){
 }
 function setDifficulty(){
     difficulty.forEach(level=>{
-        level.addEventListener('click',difficultySet)
+        level.addEventListener('click',difficultySet);
     })
 }    
 function difficultySet(e){
     e.target.removeEventListener('click', difficultySet);
-    setSpeed(e.target.id)
+    setSpeed(e.target.id);
     console.log('speed' + speed);
     main.classList.remove('hide');
     section.classList.add('hide');
