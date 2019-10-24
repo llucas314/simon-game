@@ -19,6 +19,7 @@ buttons.forEach(btn=>{
             setClickColor(parseInt(e.target.id));
             if(e.target.id != order[index]){
                 console.log('gameover');
+                playerTurn('GAME OVER!')
             } else {
                 index++;
                 setTimeout(()=>{
@@ -39,7 +40,11 @@ function pushRandom(){
     console.log('number: '+ number);
     order.push(number);
     console.log('order[]: '+ order);
-    playOrder();
+    if (order.length === 20){
+        playerTurn('Game Over! You Won')
+    } else {
+        playOrder();
+    }
 }
 
 function allowClick(){
@@ -61,7 +66,7 @@ function playOrder(){
         if(counter == round + 1){
             clearInterval(lights);
             allowClick();
-            playerTurn();
+            playerTurn('Your Turn');
         }
         counter++;
     },speed*(counter+1.5))
@@ -96,8 +101,8 @@ function alertRound(){
     alerts.classList.add('animate');
     alerts.addEventListener('animationend',animationEnd);
 }
-function playerTurn(){
-    alerts.innerHTML = 'Your Turn';
+function playerTurn(text){
+    alerts.innerHTML = text;
     alerts.classList.add('animate');
     alerts.addEventListener('animationend',animationPlayer);
     
