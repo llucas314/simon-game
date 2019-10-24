@@ -18,8 +18,8 @@ buttons.forEach(btn=>{
         if(e.target.dataset.clickable === "true"){
             setClickColor(parseInt(e.target.id));
             if(e.target.id != order[index]){
-                console.log('gameover');
-                playerTurn('GAME OVER!')
+                console.log('game over');
+                playerTurn('GAME OVER!');
             } else {
                 index++;
                 setTimeout(()=>{
@@ -28,7 +28,7 @@ buttons.forEach(btn=>{
                         index = 0;
                         round++;
                         alertRound();
-                    }s
+                    }
                 },500)
             }
         }
@@ -41,7 +41,8 @@ function pushRandom(){
     order.push(number);
     console.log('order[]: '+ order);
     if (order.length === 20){
-        playerTurn('Game Over! You Won')
+        playerTurn('Game Over! You Won');
+
     } else {
         playOrder();
     }
@@ -161,6 +162,14 @@ function difficultySet(e){
     main.classList.remove('hide');
     section.classList.add('hide');
     alertRound();
+}
+function tryAgain() {
+    order = [];
+    index = 0;
+    round = 1;
+    main.classList.add('hide');
+    section.classList.remove('hide');
+    setDifficulty();
 }
 setDifficulty();
 // alertRound();
