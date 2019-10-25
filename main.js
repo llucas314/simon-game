@@ -41,6 +41,50 @@ buttons.forEach(btn=>{
         }
     })
 });
+document.addEventListener('keydown',e=>{
+    if(redBtn.dataset.clickable === 'true'){
+        let keyId = chooseKey(e.key);
+        if(keyId !== 0){
+            setClickColor(keyId);
+            beep.pause();
+            console.log(beep.duration);
+            beep.play();
+            if(keyId != order[index]){
+                console.log('game over');
+                stopClick();
+                playerTurn('GAME OVER!');
+                tryAgain();
+            } else {
+                index++;
+                setTimeout(()=>{
+                    if (index > order.length-1){
+                        stopClick();
+                        index = 0;
+                        round++;
+                        alertRound();
+                    }
+                },500)
+            }
+        }
+
+
+    }
+})
+
+function chooseKey(key) {
+    switch (key) {
+        case 'w':
+            return 1;
+        case  'e':
+            return 2;
+        case 'd':
+            return 3;
+        case 's':
+            return 4;
+        default:
+            return 0;
+    }
+}
 
 function pushRandom(){
     let number = Math.floor((Math.random() * buttons.length)+1);
