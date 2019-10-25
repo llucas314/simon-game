@@ -108,7 +108,7 @@ function pushRandom(){
     console.log('order[]: '+ order);
     if (order.length === 21){
         win.play();
-        playerTurn('Game Over! You Won');
+        playerTurn('You Won!');
 
     } else {
         playOrder();
