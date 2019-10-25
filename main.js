@@ -8,22 +8,29 @@ const buttons = document.querySelectorAll('.button');
 const difficulty = document.querySelectorAll('.difficulty');
 const alerts = document.querySelector('.turn');
 const restart = document.querySelector('.try');
-const beep = new Audio('soundeffects/click.mp3');
+let music = [];
 let order = [];
 let index = 0;
 let round = 1;
 let speed;
+
+for (let i = 0; i < 16; i++){
+    music.push(new Audio(`soundeffects/Piano${i+110}.mp3`));
+}
 
 buttons.forEach(btn=>{
     btn.dataset.clickable = "false";
     btn.addEventListener('click', e=>{
         if(e.target.dataset.clickable === "true"){
             setClickColor(parseInt(e.target.id));
-            beep.pause();
-            console.log(beep.duration);
-            beep.play();
+            music[index].currentTime=2;
+            music[index].play();
+            setTimeout(()=>{
+                if (music[index].currentTime>.1){
+                    music[index].pause();
+                }
+            },100);
             if(e.target.id != order[index]){
-                console.log('game over');
                 stopClick();
                 playerTurn('GAME OVER!');
                 tryAgain();
@@ -46,11 +53,14 @@ document.addEventListener('keydown',e=>{
         let keyId = chooseKey(e.key);
         if(keyId !== 0){
             setClickColor(keyId);
-            beep.pause();
-            console.log(beep.duration);
-            beep.play();
+            music[index].currentTime=2;
+            music[index].play();
+            setTimeout(()=>{
+                if (music[index].currentTime>.1){
+                    music[index].pause();
+                }
+            },100);
             if(keyId != order[index]){
-                console.log('game over');
                 stopClick();
                 playerTurn('GAME OVER!');
                 tryAgain();
@@ -88,7 +98,6 @@ function chooseKey(key) {
 
 function pushRandom(){
     let number = Math.floor((Math.random() * buttons.length)+1);
-    console.log('number: '+ number);
     order.push(number);
     console.log('order[]: '+ order);
     if (order.length === 20){
@@ -115,6 +124,15 @@ function playOrder(){
     let counter = 0;
     let lights = setInterval(()=>{
         setClickColor(order[counter]);
+        if (counter < round){
+            music[counter].currentTime=2;
+            music[counter].play();
+            setTimeout(()=>{
+                if (music[counter].currentTime>.1){
+                    music[counter].pause();
+                }
+            },100);
+        }
         if(counter == round + 1){
             clearInterval(lights);
             allowClick();
@@ -171,7 +189,6 @@ animationPlayer = ()=>{
 transitionEnd = (e)=>{
     e.target.removeEventListener('transitionend',transitionEnd);
     e.target.classList.remove('redLight','blueLight','greenLight','yellowLight');
-    console.log('removed')
 };
 
 function setSpeed(level){
