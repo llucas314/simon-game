@@ -19,6 +19,17 @@ The purpose of this repository was to recreate Hasbro's popluar memory game, Sim
 
 1. Fork and clone this repository.
 2. Open index.html in your browser.
+3. The lights can be either clicked on or controlled by the keys.
+
+|Key|Light|
+|:---:|:---:|
+|<kbd>w</kbd>| `Red Light`|
+|<kbd>e</kbd>| `Blue Light`|
+|<kbd>d</kbd>| `Green Light`|
+|<kbd>s</kbd>| `Yellow Light`|
+
+
+
 
 
   
@@ -28,7 +39,7 @@ If you have any comments or suggestions please feel free to contact me through g
 
 ## Future Additions
 
-I would like to improve on the sound effects and add a "top scores" section.
+I would like to improve on the sound effects, add in-game intructions, and add a "top scores" section.
 
 ## Authors
 
