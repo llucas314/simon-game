@@ -15,6 +15,10 @@ The purpose of this repository was to recreate Hasbro's popluar memory game, Sim
 * HTML
 * CSS
 
+## Challenges
+
+Getting the lights to flash correctly was tricky, but with the use of transition event listeners, I was able to accomplish the desired effect. Trying to make everything 3D was also a challenge, but with a little research I was able to get the images to rotate correctly. 
+
 ## How to Run
 
 1. Fork and clone this repository.
@@ -27,10 +31,6 @@ The purpose of this repository was to recreate Hasbro's popluar memory game, Sim
 |<kbd>e</kbd>| `Blue Light`|
 |<kbd>d</kbd>| `Green Light`|
 |<kbd>s</kbd>| `Yellow Light`|
-
-
-
-
 
   
 ## Contributing
