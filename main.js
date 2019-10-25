@@ -8,6 +8,8 @@ const buttons = document.querySelectorAll('.button');
 const difficulty = document.querySelectorAll('.difficulty');
 const alerts = document.querySelector('.turn');
 const restart = document.querySelector('.try');
+const h3 = document.querySelector('h3');
+const centerText = document.querySelector('.centerText');
 let music = [];
 let order = [];
 let index = 0;
@@ -167,24 +169,24 @@ function setClickColor(num){
 }
 
 function alertRound(){
-    alerts.innerHTML = `Round ${round}!`;
-    alerts.classList.add('animate');
-    alerts.addEventListener('animationend',animationEnd);
+    h3.innerHTML = `Round ${round}!`
+    h3.addEventListener('animationend',animationEnd);
+    h3.classList.add('centerText');
 }
 function playerTurn(text){
-    alerts.innerHTML = text;
-    alerts.classList.add('animate');
-    alerts.addEventListener('animationend',animationPlayer);
+    h3.innerHTML = text;
+    h3.addEventListener('animationend',animationPlayer);
+    h3.classList.add('centerText');
     
 }
 animationEnd = ()=>{
-    alerts.removeEventListener('animationend',animationEnd);
-    alerts.classList.remove('animate');
+    h3.removeEventListener('animationend',animationEnd);
+    h3.classList.remove('centerText');
     pushRandom();
 };
 animationPlayer = ()=>{
-    alerts.removeEventListener('animationend',animationPlayer);
-    alerts.classList.remove('animate');
+    h3.removeEventListener('animationend',animationPlayer);
+    h3.classList.remove('centerText');
 };
 transitionEnd = (e)=>{
     e.target.removeEventListener('transitionend',transitionEnd);
@@ -229,7 +231,7 @@ function difficultySet(e){
     console.log('speed' + speed);
     main.classList.remove('hide');
     section.classList.add('hide');
-    alertRound();
+    setTimeout(alertRound, 1500)
 }
 function tryAgain() {
     restart.classList.remove('hide');
@@ -242,6 +244,7 @@ restartGame = () =>{
     index = 0;
     round = 1;
     buttons.forEach(button=>button.classList.remove('speed1','speed2','speed3','speed4'));
+    h3.innerHTML = 'SIMON'
     main.classList.add('hide');
     section.classList.remove('hide');
     restart.classList.add('hide');
