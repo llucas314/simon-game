@@ -10,6 +10,8 @@ const alerts = document.querySelector('.turn');
 const restart = document.querySelector('.try');
 const h3 = document.querySelector('h3');
 const centerText = document.querySelector('.centerText');
+let fail = new Audio('soundeffects/fail.mp3');
+let levelClick = new Audio('soundeffects/chime.mp3');
 let music = [];
 let order = [];
 let index = 0;
@@ -35,6 +37,7 @@ buttons.forEach(btn=>{
             if(e.target.id != order[index]){
                 stopClick();
                 playerTurn('GAME OVER!');
+                fail.play();
                 tryAgain();
             } else {
                 index++;
@@ -65,6 +68,7 @@ document.addEventListener('keydown',e=>{
             if(keyId != order[index]){
                 stopClick();
                 playerTurn('GAME OVER!');
+                fail.play();
                 tryAgain();
             } else {
                 index++;
@@ -227,6 +231,7 @@ function setDifficulty(){
 }    
 function difficultySet(e){
     e.target.removeEventListener('click', difficultySet);
+    levelClick.play();
     setSpeed(e.target.id);
     console.log('speed' + speed);
     main.classList.remove('hide');
