@@ -13,7 +13,9 @@ section,main{
     height: 100vh;
     width: 100vw;
     position: fixed;
-
+}
+main{
+    perspective: 750px;
 }
 h1{
     font-size: 5em;
@@ -93,6 +95,7 @@ h2{
 .wrapper{
     height: 60vh;
     width: 60vh;
+    transform: rotate3d(1, 0, 0, 30deg);
 }
 .grid{
     display: grid;
@@ -130,6 +133,8 @@ h2{
     background-color: rgb(102, 13, 13);
     border-radius: 100% 0 0 0;
     border-width: 1em .5em .5em 1em;
+    background-image: linear-gradient(to bottom, rgb(164, 42, 59) 0%, rgb(244, 8, 47) 100%);
+    box-shadow: 0px 6px 0px rgb(178, 3, 45), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
 .blue{
     grid-column: 4 / span 3;
@@ -137,6 +142,8 @@ h2{
     background-color: rgb(13, 13, 107);
     border-radius: 0 100% 0 0;
     border-width: 1em 1em .5em .5em;
+    background-image: linear-gradient(to bottom, rgb(19, 19, 167) 0%, rgb(0, 73, 189) 100%);
+    box-shadow: 0px 6px 0px rgb(0, 73, 189), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
 .green{
     grid-column:  4 / span 3;
@@ -144,6 +151,9 @@ h2{
     background-color: rgb(1, 58, 1);
     border-radius: 0 0 100% 0;
     border-width: .5em 1em 1em .5em;
+    background-image: linear-gradient(to bottom, rgb(82, 184, 114) 0%, rgb(45, 152, 80) 100%);
+    box-shadow: 0px 6px 0px rgb(7, 7, 3), inset 0px 1px 0px rgba(255,255,255,0.3);
+
 }
 .yellow{
     grid-column: 1 / span 3;
@@ -151,18 +161,37 @@ h2{
     background-color: rgb(187, 162, 20);
     border-radius: 0 0 0 100%;
     border-width: .5em .5em 1em 1em;
+    background-image: linear-gradient(to bottom, rgb(189, 165, 91) 0%, rgb(196, 166, 47) 100%) ;
+    box-shadow: 0px 6px 0px rgb(7, 7, 3), inset 0px 1px 0px rgba(255,255,255,0.3);
 }
+/*.redLight{*/
+/*    background-color: lightcoral;*/
+/*}*/
+/*.blueLight{*/
+/*    background-color: lightblue;*/
+/*}*/
+/*.greenLight{*/
+/*    background-color: lightgreen;*/
+/*}*/
+/*.yellowLight{*/
+/*    background-color:lightyellow;*/
+/*}*/
 .redLight{
-    background-color: lightcoral;
+    background-image: linear-gradient(to bottom, rgb(249, 88, 131) 0%, rgb(255, 149, 169) 100%);
+    box-shadow: 0px 6px 0px rgb(178, 3, 45), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.7);
 }
 .blueLight{
-    background-color: lightblue;
-}
-.greenLight{
-    background-color: lightgreen;
+    background-image: linear-gradient(to bottom, rgb(76, 152, 240) 0%, rgb(163, 211, 252) 100%);
+    box-shadow: 0px 6px 0px rgb(0, 73, 189), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.7);
+
 }
 .yellowLight{
-    background-color:lightyellow;
+    background-image: linear-gradient(to bottom, rgb(214, 211, 161) 0%, rgb(242, 241, 166) 100%) ;
+    box-shadow: 0px 6px 0px rgb(7, 7, 3), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.7);
+}
+.greenLight{
+    background-image: linear-gradient(to bottom, rgb(7, 234, 135) 0%, rgb(0, 229, 104) 100%);
+    box-shadow: 0px 6px 0px rgb(7, 7, 3), inset 0px 1px 0px rgba(255,255,255,0.3), inset 0px 0px 3px rgba(255,255,255,0.7);
 }
 
 .turn{
