@@ -34,6 +34,12 @@ h3{
     text-align: center;
     max-width: 100%;
 }
+h5{
+    font-size: 1em;
+    margin-right: 8%;
+    font-family: 'Overpass', sans-serif;
+    color: #ffffff;
+}
 .flex{
     display: flex;
     justify-content: center;
@@ -136,6 +142,58 @@ h3{
     grid-column: 4 / span 6;
     border-radius: 100%;
     background-color: black;
+}
+.instructions-grid{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5%;
+}
+.instructions{
+    position: absolute;
+    transform: translate(-40vw, 33vh);
+}
+.key{
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+}
+.red-key{
+    background-image: linear-gradient(to bottom, rgb(164, 42, 59) 0%, rgb(244, 8, 47) 100%);
+}
+.red-grid{
+    grid-row: 1;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
+}
+.blue-key{
+    background-image: linear-gradient(to bottom, rgb(19, 19, 167) 0%, rgb(0, 73, 189) 100%);
+}
+.blue-grid{
+    grid-row: 1;
+    grid-column: 2;
+    height: 100%;
+    width: 100%;
+}
+.green-key{
+    background-image: linear-gradient(to bottom, rgb(82, 184, 114) 0%, rgb(45, 152, 80) 100%);
+}
+.green-grid{
+    grid-row: 2;
+    grid-column: 2;
+    height: 100%;
+    width: 100%;
+}
+.yellow-key{
+    background-image: linear-gradient(to bottom, rgb(189, 165, 91) 0%, rgb(196, 166, 47) 100%) ;
+}
+.yellow-grid{
+    grid-row: 2;
+    grid-column: 1;
+    height: 100%;
+    width: 100%;
 }
 .red{
     grid-column: 1 / span 6;
@@ -260,20 +318,11 @@ h3{
 }
 
 
-
-
-
-
-
-
-
-
-
 .hide{
     opacity: 0;
     visibility: hidden;
     z-index: -1;
-    transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .show{
     opacity: 1;

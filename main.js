@@ -6,12 +6,12 @@ const section = document.querySelector('section');
 const main = document.querySelector('main');
 const buttons = document.querySelectorAll('.button');
 const difficulty = document.querySelectorAll('.difficulty');
-const alerts = document.querySelector('.turn');
 const restart = document.querySelector('.try');
 const h3 = document.querySelector('h3');
 const centerText = document.querySelector('.centerText');
 let fail = new Audio('soundeffects/fail.mp3');
 let levelClick = new Audio('soundeffects/chime.mp3');
+let win = new Audio('soundeffects/win.mp3');
 let music = [];
 let order = [];
 let index = 0;
@@ -106,7 +106,8 @@ function pushRandom(){
     let number = Math.floor((Math.random() * buttons.length)+1);
     order.push(number);
     console.log('order[]: '+ order);
-    if (order.length === 20){
+    if (order.length === 21){
+        win.play();
         playerTurn('Game Over! You Won');
 
     } else {
