@@ -1,0 +1,33 @@
+@media screen and (max-width: 640px){
+    h1{
+        font-size: 25vw;
+    }
+    h2{
+        font-size: 7.8vw;
+    }
+    h3{
+        font-size: 95%;
+    }
+    .level.flex{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height: 16vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .difficulty{
+        height: 80%;
+        width: 90%;
+    }
+    .wrapper{
+        height: 37vh;
+        width: 37vh;
+    }
+    .instructions{
+        display: none;
+    }
+    .try{
+        transform: translate(10px, 40px);
+    }
+}
