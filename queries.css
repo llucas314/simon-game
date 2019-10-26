@@ -31,3 +31,34 @@
         transform: translate(10px, 40px);
     }
 }
+
+@media screen and (max-height: 450px) and (orientation: landscape){
+    h1{
+        margin: 0;
+    }
+    h3{
+        font-size: 95%;
+    }
+    .level.flex{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height: 16vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .difficulty{
+        height: 80%;
+        width: 90%;
+    }
+    .wrapper{
+        height: 68vh;
+        width: 68vh;
+    }
+    .instructions{
+        display: none;
+    }
+    .try{
+        transform: translate(10px, 40px);
+    }
+}
