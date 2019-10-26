@@ -39,7 +39,7 @@ If you have any comments or suggestions please feel free to contact me through g
 
 ## Future Additions
 
-I would like to improve on the sound effects, add in-game intructions, and add a "top scores" section.
+I would like to improve on the sound effects, and add a "top scores" section.
 
 ## Authors
 
