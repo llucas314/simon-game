@@ -2,6 +2,10 @@
 
 The purpose of this repository was to recreate Hasbro's popluar memory game, Simon. 
 
+## Website
+
+[Simon!](https://llucas314.github.io/simon-game/)
+
 ## Screenshots
 
 ![homepage](./images/simon-hp.png)
