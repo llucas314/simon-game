@@ -1,9 +1,10 @@
 @media screen and (max-width: 640px){
     h1{
         font-size: 25vw;
+        margin: 0;
     }
     h2{
-        font-size: 7.8vw;
+        font-size: 7.5vw;
     }
     h3{
         font-size: 95%;
