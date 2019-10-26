@@ -85,7 +85,7 @@ document.addEventListener('keydown',e=>{
 
 
     }
-})
+});
 
 function chooseKey(key) {
     switch (key) {
@@ -167,14 +167,14 @@ function setClickColor(num){
             yellowBtn.addEventListener('transitionend', transitionEnd);
             yellowBtn.classList.add('yellowLight');
             break;
-    
+
         default:
             break;
     }
 }
 
 function alertRound(){
-    h3.innerHTML = `Round ${round}!`
+    h3.innerHTML = `Round ${round}!`;
     h3.addEventListener('animationend',animationEnd);
     h3.classList.add('centerText');
 }
@@ -182,7 +182,7 @@ function playerTurn(text){
     h3.innerHTML = text;
     h3.addEventListener('animationend',animationPlayer);
     h3.classList.add('centerText');
-    
+
 }
 animationEnd = ()=>{
     h3.removeEventListener('animationend',animationEnd);
@@ -223,13 +223,13 @@ function setSpeed(level){
         default:
             break;
     }
-    
+
 }
 function setDifficulty(){
     difficulty.forEach(level=>{
         level.addEventListener('click',difficultySet);
     })
-}    
+}
 function difficultySet(e){
     e.target.removeEventListener('click', difficultySet);
     levelClick.play();
@@ -250,11 +250,11 @@ restartGame = () =>{
     index = 0;
     round = 1;
     buttons.forEach(button=>button.classList.remove('speed1','speed2','speed3','speed4'));
-    h3.innerHTML = 'SIMON'
+    h3.innerHTML = 'SIMON';
     main.classList.add('hide');
     section.classList.remove('hide');
     restart.classList.add('hide');
 };
 setDifficulty();
-// alertRound();
+
 
